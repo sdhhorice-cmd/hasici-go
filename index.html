@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Otevírám rezervace…</title>
+
+  <!-- iOS + Chrome/Safari: zkusíme víc způsobů -->
+  <meta http-equiv="refresh" content="0; url=https://script.google.com/macros/s/AKfycbwdtvFDinqeHlCCYImG954JzVK8aZVSuFMvxDACvMLdylQa9iuN7DsDpvFkYWh8Cn7IMg/exec?authuser=-1">
+
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;margin:0;padding:24px;background:#0b1220;color:#eef3ff}
+    .card{max-width:720px;margin:0 auto;background:#111a2e;border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:16px}
+    a{color:#7aa7ff;word-break:break-all}
+    .muted{opacity:.8;font-size:13px;line-height:1.4}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2 style="margin:0 0 8px;">Otevírám rezervace…</h2>
+    <div class="muted">
+      Pokud se to neotevře automaticky, klikni sem:
+      <br>
+      <a id="manual" href="https://script.google.com/macros/s/AKfycbwdtvFDinqeHlCCYImG954JzVK8aZVSuFMvxDACvMLdylQa9iuN7DsDpvFkYWh8Cn7IMg/exec?authuser=-1" rel="noopener">
+        Otevřít rezervační formulář
+      </a>
+    </div>
+  </div>
+
+<script>
+(function(){
+  var target = "https://script.google.com/macros/s/AKfycbwdtvFDinqeHlCCYImG954JzVK8aZVSuFMvxDACvMLdylQa9iuN7DsDpvFkYWh8Cn7IMg/exec?authuser=-1";
+
+  // aktualizace klikacího odkazu
+  var a = document.getElementById("manual");
+  if(a) a.href = target;
+
+  // 1) okamžitý redirect (nejčastěji funguje)
+  try { window.location.replace(target); } catch(e){}
+
+  // 2) pojistka po 300 ms (někdy iOS první replace ignoruje)
+  setTimeout(function(){
+    try { window.location.href = target; } catch(e){}
+  }, 300);
+})();
+</script>
+</body>
+</html>
